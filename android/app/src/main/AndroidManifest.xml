@@ -2,7 +2,8 @@
     package="com.example.capture2edit">
    <application
         android:label="capture2edit"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+       android:requestLegacyExternalStorage="true">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

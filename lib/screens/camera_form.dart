@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'package:capture2edit/common/logout_promt.dart';
 import 'package:capture2edit/screens/slideshow.dart';
+import 'package:capture2edit/screens/zip_maker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
-
 
 import 'editor.dart';
 
@@ -94,7 +94,7 @@ class _MyCameraState extends State<MyCamera> {
               Icons.logout,
               color: Colors.white,
             ),
-          )
+          ),
         ],
       ),
       body: Center(
@@ -162,6 +162,31 @@ class _MyCameraState extends State<MyCamera> {
                           builder: (context) => MyImagePainter(
                             filePath: dirPath,
                           ),
+                        ),
+                      );
+                    },
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+                SizedBox(
+                  height: 15.0,
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 30.0),
+                  width: 250.0,
+                  child: FlatButton(
+                    child: const Text(
+                      'Make Zip',
+                      style: TextStyle(color: Colors.white, fontSize: 16.0),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ZipMaker(),
                         ),
                       );
                     },
