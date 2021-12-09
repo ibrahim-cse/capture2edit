@@ -2,12 +2,9 @@ import 'package:archive/archive.dart';
 import 'package:archive/archive_io.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 class ZipMaker extends StatefulWidget {
-  const ZipMaker({Key? key}) : super(key: key);
-
   @override
   _ZipMakerState createState() => _ZipMakerState();
 }
@@ -35,8 +32,8 @@ class _ZipMakerState extends State<ZipMaker> {
     String dirPath = directory!.path;
     print(directory.path);
     var zipEncoder = ZipFileEncoder();
-    zipEncoder.create(directory.path + "/" + 'demoTextFile.zip');
-    zipEncoder.addFile(File('$dirPath/demoTextFile.txt'));
+    zipEncoder.create(directory.path + "/" + 'demoJPGFile.zip');
+    zipEncoder.addFile(File('$dirPath/IMG_20211127_093259.jpg'));
     zipEncoder.close();
   }
 
@@ -45,9 +42,13 @@ class _ZipMakerState extends State<ZipMaker> {
     String dirPath = directory!.path;
     print(directory.path);
     List<int> bytes;
-    bytes = File('$dirPath/demoTextFile.zip').readAsBytesSync();
+    bytes = File('$dirPath/demoJPGFile.zip').readAsBytesSync();
 
-    Archive archive = ZipDecoder().decodeBytes(bytes);
+    final archive = ZipDecoder().decodeBytes(
+      bytes,
+      verify: true,
+      password: "rahad",
+    );
 
     for (ArchiveFile file in archive) {
       String filename = file.name;
@@ -74,33 +75,61 @@ class _ZipMakerState extends State<ZipMaker> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FlatButton(
-              color: Colors.blue,
-              onPressed: () {
-                writeFile(text = 'Spectrum Engineering Consortium Ltd');
-              },
-              child: const Text("Write"),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              width: 250.0,
+              child: FlatButton(
+                onPressed: () {
+                  writeFile(text = 'Spectrum Engineering Consortium Ltd');
+                },
+                child: const Text("Write"),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
             ),
-            FlatButton(
-              color: Colors.blue,
-              onPressed: () {
-                readFile();
-              },
-              child: const Text("Read"),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              width: 250.0,
+              child: FlatButton(
+                onPressed: () {
+                  readFile();
+                },
+                child: const Text("Read"),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
             ),
-            FlatButton(
-              color: Colors.blue,
-              onPressed: () {
-                zipMaker();
-              },
-              child: const Text("Make Zip"),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              width: 250.0,
+              child: FlatButton(
+                onPressed: () {
+                  zipMaker();
+                },
+                child: const Text("Make Zip"),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
             ),
-            FlatButton(
-              color: Colors.blue,
-              onPressed: () {
-                zipExtractor();
-              },
-              child: const Text("Extract Zip"),
+            Container(
+              margin: EdgeInsets.all(10.0),
+              width: 250.0,
+              child: FlatButton(
+                onPressed: () {
+                  zipExtractor();
+                },
+                child: const Text("Extract Zip"),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
             ),
           ],
         ),
