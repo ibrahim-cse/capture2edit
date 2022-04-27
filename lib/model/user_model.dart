@@ -1,7 +1,7 @@
 class UserModel {
   UserModel(this.userName, this.email, this.phone, this.address, this.password);
 
-  String userName = '';
+  String? userName;
   String email = '';
   String phone = '';
   String address = '';

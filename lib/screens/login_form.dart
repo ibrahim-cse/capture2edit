@@ -5,8 +5,9 @@ import 'package:capture2edit/common/get_text_form_field.dart';
 import 'package:capture2edit/common/toast_helper.dart';
 import 'package:capture2edit/database_handler/db_helper.dart';
 import 'package:flutter/material.dart';
-import 'signup_form.dart';
+
 import 'camera_form.dart';
+import 'signup_form.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -46,7 +47,7 @@ class _LoginFormState extends State<LoginForm> {
               return Center(child: CircularProgressIndicator());
             },
           );
-          new Future.delayed(new Duration(seconds: 1), () {
+          Future.delayed(Duration(seconds: 1), () {
             Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (_) => MyCamera()),

@@ -71,7 +71,7 @@ class _SignupFormState extends State<SignupForm> {
             Container(
               width: 57,
               height: 57,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
                     image: AssetImage(
@@ -80,10 +80,10 @@ class _SignupFormState extends State<SignupForm> {
                     fit: BoxFit.fill),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10.0,
             ),
-            Text(
+            const Text(
               'Spectrum Bank',
               textAlign: TextAlign.center,
             ),
@@ -120,54 +120,54 @@ class _SignupFormState extends State<SignupForm> {
                   myicon: Icons.phone,
                 ),
                 const SizedBox(height: 10.0),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      const Text(
-                        'Gender',
-                        style: TextStyle(fontSize: 17.0),
-                      ),
-                      Radio(
-                          value: 1,
-                          groupValue: _value,
-                          onChanged: (value) {
-                            setState(() {
-                              _value = value as int;
-                            });
-                          }),
-                      const Text(
-                        'Male',
-                        style: TextStyle(fontSize: 17.0),
-                      ),
-                      Radio(
-                          value: 2,
-                          groupValue: _value,
-                          onChanged: (value) {
-                            setState(() {
-                              _value = value as int;
-                            });
-                          }),
-                      const Text(
-                        'Female',
-                        style: TextStyle(fontSize: 17.0),
-                      ),
-                      Radio(
-                          value: 3,
-                          groupValue: _value,
-                          onChanged: (value) {
-                            setState(() {
-                              _value = value as int;
-                            });
-                          }),
-                      const Text(
-                        'Others',
-                        style: TextStyle(fontSize: 17.0),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10.0),
+                // Container(
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: <Widget>[
+                //       const Text(
+                //         'Gender',
+                //         style: TextStyle(fontSize: 17.0),
+                //       ),
+                //       Radio(
+                //           value: 1,
+                //           groupValue: _value,
+                //           onChanged: (value) {
+                //             setState(() {
+                //               _value = value as int;
+                //             });
+                //           }),
+                //       const Text(
+                //         'Male',
+                //         style: TextStyle(fontSize: 17.0),
+                //       ),
+                //       Radio(
+                //           value: 2,
+                //           groupValue: _value,
+                //           onChanged: (value) {
+                //             setState(() {
+                //               _value = value as int;
+                //             });
+                //           }),
+                //       const Text(
+                //         'Female',
+                //         style: TextStyle(fontSize: 17.0),
+                //       ),
+                //       Radio(
+                //           value: 3,
+                //           groupValue: _value,
+                //           onChanged: (value) {
+                //             setState(() {
+                //               _value = value as int;
+                //             });
+                //           }),
+                //       const Text(
+                //         'Others',
+                //         style: TextStyle(fontSize: 17.0),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // const SizedBox(height: 10.0),
                 MyTextFormField(
                   controller: _conAddress,
                   myhint: 'Address',

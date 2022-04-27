@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:capture2edit/common/logout_promt.dart';
 import 'package:capture2edit/screens/slideshow.dart';
 import 'package:capture2edit/screens/zip_maker.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 
